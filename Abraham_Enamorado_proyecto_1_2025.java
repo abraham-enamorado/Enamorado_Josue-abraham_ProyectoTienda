@@ -32,6 +32,7 @@ public class Abraham_Enamorado_proyecto_1_2025 {
         double ventas_maiz_dia = 0;
         boolean caja_cerrada = false; 
         int dia_actual = 1;
+        boolean esta_venta_tiene_mayor_ganancia = false;
 
         while (!opcion_menu_principal.equalsIgnoreCase("salir")) {
             System.out.println("\n=== Sistema de Caja Automatica ===");
@@ -263,8 +264,19 @@ public class Abraham_Enamorado_proyecto_1_2025 {
                         double total_venta = cantidad_venta * precio_venta;
                         double ganancia_venta = cantidad_venta * (precio_venta - precio_compra);
                         subtotal_venta += total_venta;
+                        
                         if (ganancia_venta > mayor_ganancia_venta) {
                             mayor_ganancia_venta = ganancia_venta;
+                            esta_venta_tiene_mayor_ganancia=true;
+                            
+                            
+                            
+                            /// aqui el error
+                            
+                            
+                            
+                            
+                            
                         }
                         if (codigo_producto.contains("1")) {
                             inventario_azucar -= cantidad_venta;
@@ -327,6 +339,13 @@ public class Abraham_Enamorado_proyecto_1_2025 {
                         total_ventas_dia += total_pagar;
                         contador_ventas_dia++;
                         System.out.println("Venta procesada correctamente. Nuevo total en caja: " + dinero_en_caja + " Lps");
+                        if (esta_venta_tiene_mayor_ganancia) {
+                            mayor_ganancia_venta = total_pagar;
+                            esta_venta_tiene_mayor_ganancia = false;
+
+                            /// aqui el error
+                        }
+                    
                     }
             }
 
